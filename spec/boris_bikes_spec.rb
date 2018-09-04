@@ -11,6 +11,11 @@ describe DockingStation do
       expect(docking_station.release_bike).to be_a Bike
     end
 
+    it "Raises an error when an empty bike dock has release called on it." do
+      docking_station = DockingStation.new(1)
+      expect { docking_station.release_bike }.to raise_error(NameError)
+    end
+
     it 'Stores bikes when the dock method is applied.' do
       bike1 = Bike.new("Chloe")
       docking_station1 = DockingStation.new(1)

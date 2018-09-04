@@ -6,7 +6,11 @@ class DockingStation
   end
 
   def release_bike
-    Bike.new(1)
+    if @bike_dock.empty? == true
+      return fail NameError, "Where ma bikes at?"
+    else
+      Bike.new(1)
+    end
   end
 
   def store(bike)
